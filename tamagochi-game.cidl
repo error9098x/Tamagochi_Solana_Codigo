@@ -1,0 +1,75 @@
+cidl: "0.9"
+info:
+  name: tamagotchi_game
+  title: Tamagotchi Game
+  version: "1.0.0"
+  summary: |-
+    A simple Tamagotchi game on the Solana blockchain where players can feed, play with, and take care of their virtual pet.
+  license:
+    name: MIT
+    url: "https://opensource.org/licenses/MIT"
+
+types:
+  TamagotchiState:
+    summary: |-
+      TamagotchiState represents the state of the virtual pet.
+      It includes details about pet's needs and levels.
+    solana:
+      owner: self
+      seeds:
+        - name: tamagotchi
+        - name: owner
+          type: sol:pubkey
+    fields:
+      - name: name
+        type: string
+        description: My Virtual Pet Name
+        attributes: [ cap=36 ]
+      - name: hunger 
+        type: u8
+        description: Hunger level from 0-100.
+      - name: happiness
+        type: u8
+        description: Happiness level from 0-100.
+      - name: cleanliness
+        type: u8
+        description: Cleanliness level from 0-100.
+      - name: last_interaction
+        type: i64
+        description: Timestamp of the last interaction with the Tamagotchi
+
+methods:
+  - name: create_tamagotchi
+    summary: |-
+      Initializes a new TamagotchiState PDA for the virtual pet.
+    inputs:
+      - name: owner
+        type: sol:pubkey
+        description: PublicKey of the account that owns the TamagotchiState.
+        solana:
+          attributes: [signer]
+      - name: tamagotchi_state
+        type: sol:account<TamagotchiState>
+        description: TamagotchiState PDA to be initialized.
+        solana:
+          attributes: [init]
+      - name: name
+        type: string
+        description: The name to be given to the TamagotchiState.
+        solana:
+          attributes: [ cap=36 ]
+  - name: feed_tamagotchi
+    inputs:
+      - name: owner
+        type: sol:pubkey
+        description: PublicKey of the account. Only the owner can feed their Tamagotchi.
+        solana:
+          attributes: [signer]
+      - name: tamagotchi_state
+        type: sol:account<TamagotchiState>
+        description: TamagotchiState to be updated.
+        solana: 
+          attributes: [mut]
+
+# Additional methods like play_with_tamagotchi and clean_tamagotchi would similarly define the necessary parameters 
+# and ensure each string field that is defined also has the "cap" attribute specified correctly.

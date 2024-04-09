@@ -1,0 +1,24 @@
+[package]
+name = "tamagotchi_game"
+version = "1.0.0"
+description = """
+A simple Tamagotchi game on the Solana blockchain where players can feed, play with, and take care of their virtual pet."""
+
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "tamagotchi_game"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.29.0"
+solana-program = "=1.17.0"
+ahash = "=0.8.6"
+bumpalo = "=3.14.0"
