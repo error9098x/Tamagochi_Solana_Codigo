@@ -2,7 +2,11 @@
 # My Tamagotchi Cat
 
 "My Tamagotchi Cat" is an interactive and engaging web-based game built on the Solana blockchain using the Anchor framework. This decentralized application (dApp) brings the nostalgic experience of caring for a virtual pet to the world of blockchain technology.
-[Screencast from 09-04-24 11:57:05 AM IST.webm](https://github.com/error9098x/Tamagochi_Solana_Codigo/assets/43810146/7d0623cb-dda3-4b0f-8590-3205f25aaccb)
+
+
+[Screencast from 09-04-24 11:57:05 AM IST.webm](https://github.com/error9098x/Tamagochi_Solana_Codigo/assets/43810146/ebaac921-57f9-4eec-aea9-dc01266d26dc)
+
+
 
 ## Features
 
